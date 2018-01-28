@@ -1,0 +1,1301 @@
+{
+    "document":{
+        "nodes":[
+            {
+                "object":"block",
+                "type":"heading-two",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Colors",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"We haven't much of a chance to talk about GLSL vector types. Before going further it's important to learn more about these variables and the subject of colors is a great way to find out more about them.",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"If you are familiar with object oriented programming paradigms you've probably noticed that we have been accessing the data inside the vectors like any regular C-like ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"struct",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"code",
+                "isVoid":false,
+                "data":{
+                    "language": "js"
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"vec3 red = vec3(1.0,0.0,0.0);\nred.x = 1.0;\nred.y = 0.0;\nred.z = 0.0;",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Defining color using an ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"x",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"italic",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"y",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"italic",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"z",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"italic",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" notation can be confusing and misleading, right? That's why there are other ways to access this same information, but with different names. The values of ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".x",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".y",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".z",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" can also be called ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".r",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".g",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".b",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".s",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".t",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".p",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":". (",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".s",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".t",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".p",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" are usually used for spatial coordinates of a texture, which we'll see in a later chapter.) You can also access the data in a vector by using the index position, ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"[0]",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"[1]",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"[2]",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"The following lines show all the ways to access the same data:",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"code",
+                "isVoid":false,
+                "data":{
+                    "language": "js"
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"vec4 vector;\nvector[0] = vector.r = vector.x = vector.s;\nvector[1] = vector.g = vector.y = vector.t;\nvector[2] = vector.b = vector.z = vector.p;\nvector[3] = vector.a = vector.w = vector.q;",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"These different ways of pointing to the variables inside a vector are just nomenclatures designed to help you write clear code. This flexibility embedded in shading language is a door for you to start thinking interchangably about color and space coordinates.",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Another great feature of vector types in GLSL is that the properties can be combined in any order you want, which makes it easy to cast and mix values. This ability is called ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"swizzle",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"italic",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"code",
+                "isVoid":false,
+                "data":{
+                    "language": "js"
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"vec3 yellow, magenta, green;\n\n// Making Yellow\nyellow.rg = vec2(1.0);  // Assigning 1. to red and green channels\nyellow[2] = 0.0;        // Assigning 0. to blue channel\n\n// Making Magenta\nmagenta = yellow.rbg;   // Assign the channels with green and blue swapped\n\n// Making Green\ngreen.rgb = yellow.bgb; // Assign the blue channel of Yellow (0) to red and blue channels",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"heading-four",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"For your toolbox",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"You might not be used to picking colors with numbers - it can be very counterintuitive. Lucky for you, there are a lot of smart programs that make this job easy. Find one that fits your needs and then train it to deliver colors in ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"vec3",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" or ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"vec4",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" format. For example, here are the templates I use on Spectrum",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"inline",
+                        "type":"paragraph",
+                        "isVoid":false,
+                        "data":{
+                            "href":"http://www.eigenlogik.com/spectrum/mac"
+                        },
+                        "nodes":[
+                            {
+                                "object":"text",
+                                "leaves":[
+                                    {
+                                        "object":"leaf",
+                                        "text":"",
+                                        "marks":[
+
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":":",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"code",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"vec3({{rn}},{{gn}},{{bn}})\nvec4({{rn}},{{gn}},{{bn}},1.0)",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"heading-three",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Mixing color",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Now that you know how colors are defined, it's time to integrate this with our previous knowledge. In GLSL there is a very useful function, ",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"inline",
+                        "type":"link",
+                        "isVoid":false,
+                        "data":{
+                            "href":"https://thebookofshaders.com/glossary/?search=mix"
+                        },
+                        "nodes":[
+                            {
+                                "object":"text",
+                                "leaves":[
+                                    {
+                                        "object":"leaf",
+                                        "text":"mix()",
+                                        "marks":[
+                                            {
+                                                "object":"mark",
+                                                "type":"code",
+                                                "data":{
+
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":", that lets you mix two values in percentages. Can you guess what the percentage range is? Yes, values between 0.0 and 1.0! Which is perfect for you, after those long hours practicing your karate moves with the fence - it is time to use them!",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"image",
+                "isVoid":true,
+                "data":{
+                    "src":"https://thebookofshaders.com/06/mix-f.jpg"
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":" ",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Check the following code at line 18 and see how we are using the absolute values of a sin wave over time to mix ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"colorA",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"colorB",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"heading-three",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Playing with gradients",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"The ",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"inline",
+                        "type":"link",
+                        "isVoid":false,
+                        "data":{
+                            "href":"https://thebookofshaders.com/glossary/?search=mix"
+                        },
+                        "nodes":[
+                            {
+                                "object":"text",
+                                "leaves":[
+                                    {
+                                        "object":"leaf",
+                                        "text":"mix()",
+                                        "marks":[
+                                            {
+                                                "object":"mark",
+                                                "type":"code",
+                                                "data":{
+
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":" function has more to offer. Instead of a single ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"float",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", we can pass a variable type that matches the two first arguments, in our case a ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"vec3",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":". By doing that we gain control over the mixing percentages of each individual color channel, ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"r",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":", ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"g",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"b",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":".",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"block",
+                        "type":"image",
+                        "isVoid":true,
+                        "data":{
+                            "src":"https://thebookofshaders.com/06/mix-vec.jpg"
+                        },
+                        "nodes":[
+                            {
+                                "object":"text",
+                                "leaves":[
+                                    {
+                                        "object":"leaf",
+                                        "text":" ",
+                                        "marks":[
+
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Take a look at the following example. Like the examples in the previous chapter, we are hooking the transition to the normalized ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"x",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"italic",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" coordinate and visualizing it with a line. Right now all the channels go along the same line.",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "object":"block",
+                "type":"paragraph",
+                "isVoid":false,
+                "data":{
+
+                },
+                "nodes":[
+                    {
+                        "object":"text",
+                        "leaves":[
+                            {
+                                "object":"leaf",
+                                "text":"Now, uncomment line number 25 and watch what happens. Then try uncommenting lines 26 and 27. Remember that the lines visualize the amount of ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"colorA",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" and ",
+                                "marks":[
+
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":"colorB",
+                                "marks":[
+                                    {
+                                        "object":"mark",
+                                        "type":"code",
+                                        "data":{
+
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "object":"leaf",
+                                "text":" to mix per channel.",
+                                "marks":[
+
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
