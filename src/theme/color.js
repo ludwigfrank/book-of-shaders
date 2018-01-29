@@ -11,6 +11,21 @@ export const light = {
     }
 }
 
+export const dark = {
+    type: {
+        primary: '#fafaff',
+        regular: '#cddbe2',
+        secondary: '#90949C',
+        disabled: 'rgba(255, 255, 255, 0.38)',
+        hint: 'rgba(255, 255, 255, 0.38)',
+        icon: 'rgba(255, 255, 255, 0.38)',
+        divider: 'rgba(255, 255, 255, 0.12)',
+        lightDivider: 'rgba(255, 255, 255, 0.075)',
+    }
+}
+
+
 export default {
-    light
+    light,
+    dark
 }

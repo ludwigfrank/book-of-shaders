@@ -5,13 +5,14 @@ export default glslify`
   varying vec3 vColor;
   varying vec3 vNormal;
   
-  
   struct HemisphereLight {
     vec3 direction;
     vec3 groundColor;
     vec3 skyColor;
   };
   uniform HemisphereLight hemisphereLights[NUM_HEMI_LIGHTS];
+  uniform float mixIntensity;
+  uniform vec3 mixColor;
   
   vec3 mod289(vec3 x) {
     return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -113,6 +114,7 @@ export default glslify`
     float noise = snoise3(vec3(dot(hemisphereLights[0].skyColor * 0.01, vColor) / 0.01));
     light += (dot(hemisphereLights[0].direction, vNormal) + 1.0) * hemisphereLights[0].skyColor * 0.5;
     light += (-dot(hemisphereLights[0].direction, vNormal) + 1.0) * hemisphereLights[0].groundColor * 0.5;
-    gl_FragColor = vec4(vColor * light / 1.1 * noise, 1.0);
+   
+    gl_FragColor = vec4(mix(vColor, mixColor, mixIntensity) * light / 1.1 * noise, 1.0);
   }
 `

@@ -3,9 +3,9 @@
  * https://github.com/mui-org/material-ui/blob/eb369576d5f84bb6680dd4c8c79b557de0b60655/src/styles/shadows.js
  **/
 
-const shadowKeyUmbraOpacity = 0.15 // 0.2
-const shadowKeyPenumbraOpacity = 0.1 // 0.14
-const shadowAmbientShadowOpacity = 0.08 // 0.12
+const shadowKeyUmbraOpacity = 0.2 // 0.2
+const shadowKeyPenumbraOpacity = 0.14 // 0.14
+const shadowAmbientShadowOpacity = 0.12 // 0.12
 
 const createShadow = (...px) => {
     return [

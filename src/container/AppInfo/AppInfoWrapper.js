@@ -5,13 +5,16 @@ import styled from 'react-emotion'
 import AppInfoLine from './AppInfoLine'
 
 const Wrapper = styled('div')`
-  margin-top: 32px;
+
+`
+
+const AppInfoLinesWrapper = styled('div')`
 `
 
 
 const AppInfoLines = ({ info }) => {
     return (
-        <div>
+        <AppInfoLinesWrapper>
             { info.map( ( item, index) => {
                 return <AppInfoLine
                     label={ item.label }
@@ -19,7 +22,7 @@ const AppInfoLines = ({ info }) => {
                     key={ item.label + item.description }
                 />
             }) }
-        </div>
+        </AppInfoLinesWrapper>
     )
 }
 
@@ -28,9 +31,7 @@ const AppInfoWrapper = ({
     }) => {
 
     return (
-        <Wrapper>
-            <AppInfoLines info={ info }/>
-        </Wrapper>
+        <AppInfoLines info={ info }/>
     )
 }
 

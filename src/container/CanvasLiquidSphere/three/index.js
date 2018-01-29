@@ -86,6 +86,7 @@ export default class Liquid extends Component {
         this.clock = new Clock()
 
         // console.log(this.sphere.material.uniforms)
+        this.sphere.changeColor([1.0, 0.2, 0.2])
 
         this.initForce()
         this.renderCanvas()

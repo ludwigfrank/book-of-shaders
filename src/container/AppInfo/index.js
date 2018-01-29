@@ -6,18 +6,25 @@ import AppInfoWrapper from './AppInfoWrapper'
 
 
 const Wrapper = styled('div')`
-  margin-left: calc(64px + 32px); 
-  margin-top: calc(64px + 28px);
-  max-width: 300px;
+  margin-left: calc(64px);
+  width: calc(50% - 64px);
+  border-right: 1px solid rgba(99,114,130,0.16);
+  border-top: 1px solid rgba(99,114,130,0.16);
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  bottom: 0;
+  position: absolute;
+  justify-content: space-evenly;
 `
 
 const AppInfoContent = ({ info }) => {
     return (
-        <div>
+        <Wrapper>
             { info.map(( info, index ) =>
                 <AppInfoWrapper info={ info } key={ info + index }/>
             )}
-        </div>
+        </Wrapper>
     )
 }
 
@@ -27,17 +34,24 @@ export default class AppInfo extends Component {
     state = {
         info: [
             [{
-                label: 'User',
-                description: 'D - 29348209348'
-            }, {
-                label: 'Location',
-                description: 'Germany'
+                label: 'User ID',
+                description: 'D - 29FY28'
             }, {
                 label: 'Login',
                 description: new Date().toLocaleTimeString()
             }, {
                 label: 'Duration',
                 description: '00:00:00:00'
+            }],
+            [{
+                label: 'Location',
+                description: 'Germany'
+            }, {
+                label: 'Longitude',
+                description: '52.39886'
+            }, {
+                label: 'Latitude',
+                description: '13.06566'
             }],
             [{
                 label: 'Processor',
@@ -90,9 +104,7 @@ export default class AppInfo extends Component {
     render () {
         const { info } = this.state
         return (
-            <Wrapper>
-                <AppInfoContent info={ info }/>
-            </Wrapper>
+            <AppInfoContent info={ info }/>
         )
     }
 }

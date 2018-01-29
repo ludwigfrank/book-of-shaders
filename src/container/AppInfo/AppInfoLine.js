@@ -6,11 +6,10 @@ import Typography from '../../components/Typography'
 
 
 const AppInfoLineWrapper = styled('div')`
-  width: 200px;
   margin-bottom: 2px;
   & > span {
     display: inline-block;
-    width: 100px;
+    width: 96px;
   }
 `
 

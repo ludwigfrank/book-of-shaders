@@ -5,9 +5,10 @@ import GridGuidesPng from '../img/8pxGuides.png'
 import AppBar from '../container/AppBar'
 import NavigationBar from '../container/NavigationBar'
 import AppInfo from '../container/AppInfo'
-import AppInfoRight from '../container/AppInfoRight'
+// import AppInfoRight from '../container/AppInfoRight'
 import ScreenEffect from '../container/ScreenEffect'
 import LiquidSphere from '../container/CanvasLiquidSphere'
+import Terminal from '../container/Terminal'
 import Article from '../container/Article'
 
 
@@ -23,16 +24,42 @@ const GridGuides = styled('div')`
 
 export default class Interface extends Component {
     state = {
+        showTerminal: false
+    }
+
+    componentDidMount () {
+        window.addEventListener('keydown', (value) => {
+            const { key, ctrlKey } = value
+
+            // Toggle Terminal
+            if (key === 'j' && ctrlKey) {
+                this.setState({
+                    showTerminal: !this.state.showTerminal,
+                })
+            }
+
+            if (key === 'Enter' && ctrlKey) {
+                this.terminalConfirmInput()
+            }
+        })
+    }
+
+    terminalConfirmInput = () => {
 
     }
 
+
     render () {
+        const { showTerminal } = this.state
         return (
             <div>
                 <NavigationBar />
                 <AppBar />
                 <AppInfo />
                 <Article />
+                <ScreenEffect />
+                <LiquidSphere />
+                <Terminal showTerminal={ showTerminal }/>
             </div>
         )
     }
