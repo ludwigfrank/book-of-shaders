@@ -118,7 +118,7 @@ const base = props => css`
   line-height: 1.6em;
   font-size: ${ props.theme.type.size.regular }em;
   color: ${ props.theme.color.dark.type.primary };
-  font-weight: 200;
+  font-weight: 400;
 `
 
 export const CodeWrapper = styled('div')`

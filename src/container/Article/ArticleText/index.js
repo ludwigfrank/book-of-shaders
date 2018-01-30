@@ -1,4 +1,4 @@
-import { Editor, getEventTransfer } from 'slate-react'
+import { Editor } from 'slate-react'
 import { Value } from 'slate'
 import Prism  from 'prismjs'
 import 'prismjs/components/prism-glsl'
@@ -56,7 +56,7 @@ const H4 = styled('h4')`
   margin-bottom: 0em;
 `
 
-const Image = styled('img')`
+/*const Image = styled('img')`
   max-width: 100%;
   border-radius: 2px;
   // box-shadow: ${ props => props.theme.shadows[8] };
@@ -75,7 +75,7 @@ const FigureCaption = styled('figcaption')`
 
 const Figure = styled('figure')`
   ${ textBase };
-`
+`*/
 
 
 /**
@@ -87,11 +87,6 @@ const Figure = styled('figure')`
 
 function CodeBlock(props) {
     const { editor, node } = props
-    const language = node.data.get('language')
-
-    function onChange(event) {
-        editor.change(c => c.setNodeByKey(node.key, { data: { language: event.target.value }}))
-    }
 
     return (
         <CodeWrapper>
@@ -187,19 +182,7 @@ class ArticleText extends React.Component {
                 const href = data.get('href')
                 return <a href={href} {...attributes}>{children}</a>
             }
-            case 'image': {
-                const src = node.data.get('src')
-                const caption = node.data.get('caption')
-                const className = isSelected ? 'active' : null
-                const style = { display: 'block' }
-                console.log( )
-                return (
-                    <div>
-                        { /*<Image src={src} className={className} style={style} {...attributes} */ }
-                        { /* <FigureCaption> { caption } </FigureCaption> */ }
-                    </div>
-                )
-            }
+
         }
     }
 
@@ -246,7 +229,6 @@ class ArticleText extends React.Component {
     decorateNode = (node) => {
         if (node.type !== 'code') return
 
-        const language = node.data.get('language')
         const texts = node.getTexts().toArray()
 
         let string = texts.map(t => t.text).join('\n')
@@ -297,8 +279,6 @@ class ArticleText extends React.Component {
 
         return decorations
     }
-
-
 }
 
 /**

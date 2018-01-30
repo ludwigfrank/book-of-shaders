@@ -10,6 +10,7 @@ import ScreenEffect from '../container/ScreenEffect'
 import LiquidSphere from '../container/CanvasLiquidSphere'
 import Terminal from '../container/Terminal'
 import Article from '../container/Article'
+import CodeEditor from '../container/CodeEditor'
 
 
 const GridGuides = styled('div')`
@@ -57,8 +58,9 @@ export default class Interface extends Component {
                 <AppBar />
                 <AppInfo />
                 <Article />
+                <CodeEditor />
                 <ScreenEffect />
-                <LiquidSphere />
+                <LiquidSphere/>
                 <Terminal showTerminal={ showTerminal }/>
             </div>
         )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled, { keyframes } from 'react-emotion'
+import styled, { keyframes, css } from 'react-emotion'
 
 import TerminalText from './TerminalText'
 
@@ -15,6 +15,7 @@ const Wrapper = styled('div')`
   top: 48px;
   left: 48px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  ${ props => !props.isShown && css`pointer-events: none`};
 `
 
 const Header = styled('div')`

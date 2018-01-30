@@ -1,13 +1,14 @@
-import { Editor, getEventTransfer } from 'slate-react'
-import { Value } from 'slate'
+import { Editor } from 'slate-react'
+import { Value, Document } from 'slate'
 import Prism  from 'prismjs'
 import 'prismjs/components/prism-glsl'
 import React, { Component } from 'react'
-import traverseData from './traverseCodeLines'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
+import { CodeWrapper, Code, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark, base } from '../../theme/styles/code'
+import styled from 'react-emotion'
+import CodeCanvas from './CodeCanvas'
 
-import { CodeWrapper, Code, CodeMark, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark } from '../../theme/styles/code'
-
+import initialValue from './data/noise.json'
 
 /**
  * Define our code components.
@@ -16,13 +17,23 @@ import { CodeWrapper, Code, CodeMark, CodeCommentMark, CodeKeywordMark, CodeNumb
  * @return {Element}
  */
 
-function CodeBlock(props) {
-    const { editor, node } = props
-    const language = node.data.get('language')
+const StyledEditor = styled('div')`
+  width: calc(50% - 64px);
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  left: 64px;
+  top: 64px;
+`
 
-    function onChange(event) {
-        editor.change(c => c.setNodeByKey(node.key, { data: { language: event.target.value }}))
-    }
+const CodeLine = styled('div')`
+  margin-left: 80px;
+`
+
+
+function CodeBlock(props) {
+
 
     return (
         <CodeWrapper>
@@ -34,16 +45,45 @@ function CodeBlock(props) {
 }
 
 function CodeBlockLine(props) {
+    const { editor, node } = props
+
     return (
-        <div {...props.attributes}>{props.children}</div>
+        <div style={{ position: 'relative' }} >
+            <CodeLine {...props.attributes} >{props.children}</CodeLine>
+        </div>
     )
 }
 
-/**
- * The pasting html example.
- *
- * @type {Component}
- */
+const CodeLineWrapper = styled('div')`
+  position:absolute;
+  top: 32px;
+  left: 32px;
+  opacity: 0.4;
+`
+
+const CodeLineNumber = styled('div')`
+  ${ base };
+  display: block;
+  text-align: right;
+  opacity: 0.5;
+`
+
+const LineNumbers = ( { size } ) => {
+    const codeLines = []
+    for ( let i = 0; i < size; i++ ) {
+        codeLines.push(
+            <CodeLineNumber key={ i }>
+                { i < 10 ? "0" + i : i }
+            </CodeLineNumber>
+        )
+    }
+
+    return (
+        <CodeLineWrapper>
+            { codeLines }
+        </CodeLineWrapper>
+    )
+}
 
 class CodeEditor extends Component {
 
@@ -54,8 +94,9 @@ class CodeEditor extends Component {
      */
 
     state = {
-        value: Value.fromJSON(traverseData()),
+        value: Value.fromJSON(initialValue),
     }
+
 
     /**
      * On change, save the new value.
@@ -63,7 +104,7 @@ class CodeEditor extends Component {
      * @param {Change} change
      */
 
-    onChange = ({ value }) => {
+    onChange = ( { value } ) => {
         this.setState({ value })
     }
 
@@ -74,19 +115,23 @@ class CodeEditor extends Component {
      */
 
     render() {
-
+        const size = this.state.value.document.getBlocks().size
         return (
-            <StyledEditor>
-                <Editor
-                    placeholder="Paste in some HTML..."
-                    value={this.state.value}
-                    onPaste={this.onPaste}
-                    onChange={this.onChange}
-                    renderNode={this.renderNode}
-                    renderMark={this.renderMark}
-                    decorateNode={this.decorateNode}
-                />
-            </StyledEditor>
+            <div>
+                <CodeCanvas />
+                <StyledEditor>
+                    <LineNumbers size={size}/>
+                    <Editor
+                        placeholder="Paste in some HTML..."
+                        value={this.state.value}
+                        onPaste={this.onPaste}
+                        onChange={this.onChange}
+                        renderNode={this.renderNode}
+                        renderMark={this.renderMark}
+                        decorateNode={this.decorateNode}
+                    />
+                </StyledEditor>
+            </div>
         )
     }
 
@@ -100,37 +145,8 @@ class CodeEditor extends Component {
     renderNode = (props) => {
         const { attributes, children, node, isSelected } = props
         switch (node.type) {
-            case 'paragraph': return <Paragraph {...attributes}>{children}</Paragraph>
-            case 'quote': return <blockquote {...attributes}>{children}</blockquote>
             case 'code': return <CodeBlock {...props} />
             case 'code-line': return <CodeBlockLine {...props} />
-            case 'bulleted-list': return <ul {...attributes}>{children}</ul>
-            case 'heading-one': return <H1 {...attributes}>{children}</H1>
-            case 'heading-two': return <H2 {...attributes}>{children}</H2>
-            case 'heading-three': return <H3 {...attributes}>{children}</H3>
-            case 'heading-four': return <H4 {...attributes}>{children}</H4>
-            case 'heading-five': return <h5 {...attributes}>{children}</h5>
-            case 'heading-six': return <h6 {...attributes}>{children}</h6>
-            case 'list-item': return <li {...attributes}>{children}</li>
-            case 'numbered-list': return <ol {...attributes}>{children}</ol>
-            case 'link': {
-                const { data } = node
-                const href = data.get('href')
-                return <a href={href} {...attributes}>{children}</a>
-            }
-            case 'image': {
-                const src = node.data.get('src')
-                const caption = node.data.get('caption')
-                const className = isSelected ? 'active' : null
-                const style = { display: 'block' }
-                console.log( )
-                return (
-                    <div>
-                        { /*<Image src={src} className={className} style={style} {...attributes} */ }
-                        { /* <FigureCaption> { caption } </FigureCaption> */ }
-                    </div>
-                )
-            }
         }
     }
 
@@ -145,7 +161,6 @@ class CodeEditor extends Component {
         const { children, mark } = props
         switch (mark.type) {
             case 'bold': return <strong>{children}</strong>
-            case 'code': return <CodeMark data-text={children}>{children}</CodeMark>
             case 'italic': return <em>{children}</em>
             case 'underlined': return <u>{children}</u>
             case 'comment': return <CodeCommentMark>{children}</CodeCommentMark>

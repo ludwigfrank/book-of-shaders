@@ -1,6 +1,6 @@
 const type = {
     family: {
-        primary: 'Gineso',
+        primary: 'Gineso Norm',
         secondary: 'FS Millbank Negative',
         code: 'Operator Mono'
     },

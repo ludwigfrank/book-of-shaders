@@ -21,6 +21,7 @@ const CenterContent = styled('div')`
   top: 50%;
   pointer-events: none;
   transform: translateY(-50%);
+  z-index: ${props => props.theme.elevation.xl};
 `
 
 
@@ -60,7 +61,7 @@ export default class Liquid extends Component {
         this.group.add( this.sphere )
         this.scene.add( this.group )
 
-        this.camera.position.z = 60
+        this.camera.position.z = 40
 
         Light( this.scene )
 

@@ -1,4 +1,4 @@
-import { Editor, getEventTransfer } from 'slate-react'
+import { Editor } from 'slate-react'
 import { Value } from 'slate'
 import Prism  from 'prismjs'
 import 'prismjs/components/prism-glsl'
@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import initialValue from './data.json'
 
-import styled, { css } from 'react-emotion'
+import styled from 'react-emotion'
 import { CodeWrapper, Code, CodeMark, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark, GlitchCss } from './styles/code/index'
 
 const StyledEditor = styled('div')`
@@ -25,9 +25,11 @@ function CodeBlock(props) {
     const { editor, node } = props
     const language = node.data.get('language')
 
-    function onChange(event) {
-        editor.change(c => c.setNodeByKey(node.key, { data: { language: event.target.value }}))
-    }
+    /*
+        function onChange(event) {
+            editor.change(c => c.setNodeByKey(node.key, { data: { language: event.target.value }}))
+        }
+    */
 
     return (
         <CodeWrapper>
@@ -129,19 +131,6 @@ class TerminalText extends Component {
                 const { data } = node
                 const href = data.get('href')
                 return <a href={href} {...attributes}>{children}</a>
-            }
-            case 'image': {
-                const src = node.data.get('src')
-                const caption = node.data.get('caption')
-                const className = isSelected ? 'active' : null
-                const style = { display: 'block' }
-                console.log( )
-                return (
-                    <div>
-                        { /*<Image src={src} className={className} style={style} {...attributes} */ }
-                        { /* <FigureCaption> { caption } </FigureCaption> */ }
-                    </div>
-                )
             }
         }
     }

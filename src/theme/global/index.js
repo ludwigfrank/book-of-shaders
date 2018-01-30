@@ -30,6 +30,9 @@ const reset = css`
       line-height: 1;
       background-color: #F5F5F5;
       overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility !important;
     }
     ol, ul {
       list-style: none;
@@ -46,6 +49,8 @@ const reset = css`
       border-collapse: collapse;
       border-spacing: 0;
     }
+    
+   
     
     ::-webkit-scrollbar-track
     {
@@ -264,6 +269,62 @@ const reset = css`
         font-weight: bold;
         font-style: italic;
     }
+    
+    
+    @font-face {
+    font-family: 'Gineso Norm';
+    src: local('Gineso Norm Medium'), local('Gineso-NorMed'),
+        url('Gineso-NorMed.woff2') format('woff2'),
+        url('Gineso-NorMed.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Gineso Norm';
+        src: local('Gineso Norm Demi'), local('Gineso-NorDem'),
+            url('Gineso-NorDem.woff2') format('woff2'),
+            url('Gineso-NorDem.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Gineso Norm';
+        src: local('Gineso Norm Book'), local('Gineso-NorBoo'),
+            url('Gineso-NorBoo.woff2') format('woff2'),
+            url('Gineso-NorBoo.woff') format('woff');
+        font-weight: 300;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Gineso Norm';
+        src: local('Gineso Norm Regular'), local('Gineso-NorReg'),
+            url('Gineso-NorReg.woff2') format('woff2'),
+            url('Gineso-NorReg.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Gineso Norm';
+        src: local('Gineso Norm Thin'), local('Gineso-NorThi'),
+            url('Gineso-NorThi.woff2') format('woff2'),
+            url('Gineso-NorThi.woff') format('woff');
+        font-weight: 100;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Gineso Norm';
+        src: local('Gineso Norm Light'), local('Gineso-NorLig'),
+            url('Gineso-NorLig.woff2') format('woff2'),
+            url('Gineso-NorLig.woff') format('woff');
+        font-weight: 200;
+        font-style: normal;
+    }
+
     
 `
 

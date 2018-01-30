@@ -1,0 +1,190 @@
+{
+    "document": {
+        "nodes": [
+            {
+                "object": "block",
+                "type": "code",
+                "data": {
+                    "language": "js"
+                },
+                "nodes": [
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Experiment v0.13 Color Implementation 20-01-2200"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": " "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "data": {
+                            "editable": "true"
+                        },
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Red"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "vec3 cRed = vec3(0.912, 0.102, 0.207);"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Green "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "vec3 cGreen = vec3(1.000, 0.954, 0.162);",
+                                        "marks":[
+                                            {
+                                                "object":"mark",
+                                                "type":"code",
+                                                "data":{
+
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Blue"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "vec3 cBlue = vec3(0.923, 0.954, 0.162);",
+                                        "marks":[
+                                            {
+                                                "object":"mark",
+                                                "type":"code",
+                                                "data":{
+
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": " "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Return the final number"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "gl_FragColor = vec4(mix(cRed, cGreen, cBlue) * noise, 1.0);"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

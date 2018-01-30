@@ -15,11 +15,9 @@ const Text = ( props ) => {
         weight,
         spacing,
         size,
-        lineHeight,
-        ...other
+        lineHeight
     } = props
 
-    const sColor = props.color ? props.color : ''
 
     const basicStyles = props => css`
       font-family: ${ props.theme.type.family[font] };
@@ -35,13 +33,6 @@ const Text = ( props ) => {
       }}em;
     `
 
-    const types = {
-        h1: 'h1',
-        h2: 'h2',
-        h3: 'h3',
-        body: 'p',
-        caption: 'span'
-    }
 
     const styles = {
 

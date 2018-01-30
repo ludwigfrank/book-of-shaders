@@ -32,7 +32,6 @@ const traverseData = () => {
     }, [])
 
     data.document.nodes = d
-    console.log(data)
     return data
 }
 

@@ -14,9 +14,6 @@ const AppInfoLineWrapper = styled('div')`
 `
 
 class AppInfoLine extends Component {
-    constructor (props) {
-        super (props)
-    }
 
     shouldComponentUpdate (nextProps, nextState, nextContext) {
         if (nextProps.description === this.props.description) return false
