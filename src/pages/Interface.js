@@ -25,7 +25,12 @@ const GridGuides = styled('div')`
 
 export default class Interface extends Component {
     state = {
-        showTerminal: false
+        showTerminal: false,
+        challenges: [
+            'challenge-color',
+            'challenge-noise'
+        ],
+        activeChallenge: null
     }
 
     componentDidMount () {
@@ -39,10 +44,40 @@ export default class Interface extends Component {
                 })
             }
 
+            // Start new Challenge
+            // Todo: make it activate automatically after the corresponding article is finished reading
+            if (key === 'c' && ctrlKey) {
+                this.startNewChallenge()
+            }
+
+            // Confirm the Terminal Input
+            // Todo: create a notification in the terminal that shows the user it is possible
             if (key === 'Enter' && ctrlKey) {
                 this.terminalConfirmInput()
             }
         })
+
+    }
+
+    startNewChallenge = () => {
+        const { challenges, activeChallenge } = this.state
+        let challenge
+
+        // Init first Challenge
+        if (activeChallenge === null) challenge = challenges[0]
+
+        // Cycle through the array of challenges
+        else {
+            const index = challenges.findIndex((c) => c === activeChallenge)
+            if ( index === challenges.length - 1) challenge = challenges[0]
+            else challenge = challenges[index + 1]
+        }
+
+        this.setState({
+            activeChallenge: challenge
+        })
+
+        console.log('NEW CHALLENGE: ' + challenge)
     }
 
     terminalConfirmInput = () => {
@@ -51,7 +86,7 @@ export default class Interface extends Component {
 
 
     render () {
-        const { showTerminal } = this.state
+        const { showTerminal, activeChallenge } = this.state
         return (
             <div>
                 <NavigationBar />
@@ -59,9 +94,8 @@ export default class Interface extends Component {
                 <AppInfo />
                 <Article />
                 <CodeEditor />
-                <ScreenEffect />
                 <LiquidSphere/>
-                <Terminal showTerminal={ showTerminal }/>
+                <Terminal showTerminal={ showTerminal } activeChallenge={ activeChallenge }/>
             </div>
         )
     }

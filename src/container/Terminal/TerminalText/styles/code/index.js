@@ -124,7 +124,7 @@ const base = props => css`
 export const CodeWrapper = styled('div')`
    margin: 24px 32px;
    overflow: hidden;
-   max-height: 316px;
+   max-height: 400px;
 `
 
 export const Code = styled('code')`

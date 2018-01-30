@@ -118,7 +118,6 @@ class CodeEditor extends Component {
         const size = this.state.value.document.getBlocks().size
         return (
             <div>
-                <CodeCanvas />
                 <StyledEditor>
                     <LineNumbers size={size}/>
                     <Editor

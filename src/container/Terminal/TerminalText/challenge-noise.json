@@ -1,0 +1,210 @@
+{
+    "document": {
+        "nodes": [
+            {
+                "object": "block",
+                "type": "code",
+                "data": {
+                    "language": "js"
+                },
+                "nodes": [
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "readOnly": "true",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Experiment v0.13 Movement Implementation 04-02-2203"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": " "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Calculate noise based on vertex position and time"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "data": {
+                            "editable": "true"
+                        },
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "float noise = simplexNoise3(vec3(position / 8 + updateTime))",
+                                        "marks":[
+                                            {
+                                                "object":"mark",
+                                                "type":"code",
+                                                "data":{
+
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": " "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line-editable",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Calculate the ModelViewPosition by multiplying the"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// model x view Matrix with the position vector"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line-editable",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "vec4 mvPosition = "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "  modelViewMatrix * "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "  vec4(position * (noise * pow(distort, 2.0) + radius), 1.0);"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": " "
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "// Return the vertex position"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "object": "block",
+                        "type": "code-line",
+                        "nodes": [
+                            {
+                                "object": "text",
+                                "leaves": [
+                                    {
+                                        "text": "gl_Position = projectionMatrix * mvPosition;"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

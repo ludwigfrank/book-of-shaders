@@ -5,7 +5,7 @@ import TerminalText from './TerminalText'
 
 const Wrapper = styled('div')`
   width: ${props => props.isShown ? 600 : 550}px;
-  height: ${props => props.isShown ? 400 : 350}px;
+  height: ${props => props.isShown ? 440 : 350}px;
   opacity: ${props => props.isShown ? 1 : 0};
   position: absolute;
   background-color: black;
@@ -26,7 +26,7 @@ const Header = styled('div')`
 
 const HeaderText = styled('span')`
   font-family: ${ props => props.theme.type.family.primary };
-  font-weight: 200;
+  font-weight: 600;
   font-size: ${ props => props.theme.type.size.tiny }em;
   text-align: center;
   box-sizing: border-box;
@@ -34,7 +34,7 @@ const HeaderText = styled('span')`
   display: block;
   line-height: 32px;
   color: white;
-  opacity: 0.75;
+  opacity: 0.45;
 `
 
 const Gradient = styled('div')`
@@ -64,6 +64,12 @@ const RedLed = styled('div')`
   animation: ${ BlinkAnimation } 1s infinite;
 `
 
+const TerminalFile = ({ showTerminal, activeChallenge }) => {
+
+    return <TerminalText isShown={ showTerminal } activeChallenge={ activeChallenge }/>
+
+
+}
 
 export default class Terminal extends Component {
     state = {
@@ -71,16 +77,21 @@ export default class Terminal extends Component {
         isShown: true
     }
 
+    static defaultProps = {
+        showTerminal: false,
+        activeChallenge: 'challenge-color'
+    }
+
     render () {
         const { fileName } = this.state
-        const { showTerminal } = this.props
+        const { showTerminal, activeChallenge } = this.props
 
         return (
             <Wrapper isShown={ showTerminal }>
                 <Header>
                     <RedLed />
                     <HeaderText> { fileName } </HeaderText>
-                    <TerminalText isShown={ showTerminal }/>
+                    <TerminalFile showTerminal={ showTerminal } activeChallenge={ activeChallenge }/>
                 </Header>
             </Wrapper>
         )

@@ -5,7 +5,8 @@ import 'prismjs/components/prism-glsl'
 import React, { Component } from 'react'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import initialValue from './data.json'
-
+import challengeNoise from './challenge-noise.json'
+import challengeColor from './challenge-color.json'
 import styled from 'react-emotion'
 import { CodeWrapper, Code, CodeMark, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark, GlitchCss } from './styles/code/index'
 
@@ -42,7 +43,7 @@ function CodeBlock(props) {
 
 function CodeBlockLine(props) {
     return (
-        <div contentEditable={false} {...props.attributes}>{props.children}</div>
+        <div {...props.attributes}>{props.children}</div>
     )
 }
 
@@ -67,8 +68,12 @@ class TerminalText extends Component {
      */
 
     state = {
-        value: Value.fromJSON(initialValue),
+        value: Value.fromJSON(challengeNoise),
         codeNode: null
+    }
+
+    static defaultProps = {
+        activeChallenge: null
     }
 
     /**
@@ -81,8 +86,19 @@ class TerminalText extends Component {
         this.setState({ value })
     }
 
-    componentWillReceiveProps ({ isShown }, nextContext) {
+    componentWillReceiveProps ({ isShown, activeChallenge }, nextContext) {
         if ( isShown ) this.toggleFocus()
+        if (activeChallenge !== this.props.activeChallenge) this.changeValue( activeChallenge )
+    }
+
+    changeValue = ( challenge ) => {
+        switch ( challenge ) {
+            case 'challenge-color': this.setState({ value: Value.fromJSON(challengeColor) })
+                break;
+            case 'challenge-noise': this.setState({ value: Value.fromJSON(challengeNoise) })
+                break;
+            default: this.setState({ value: Value.fromJSON(challengeColor) })
+        }
     }
 
     toggleFocus = () => {

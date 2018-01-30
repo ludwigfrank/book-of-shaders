@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'react-emotion'
 import {
-    BoxGeometry,
-    Mesh, PerspectiveCamera, Scene,
+    PerspectiveCamera, Scene,
     WebGLRenderer,
-    Clock, Color,
-    ShadowMaterial, Group, OctahedronBufferGeometry
 } from 'three'
-import { EffectComposer, RenderPass, GlitchPass, FilmPass, BokehPass, BlurPass } from 'postprocessing'
 
 import Force2 from '../../../lib/modules/Force2'
 import Light from './Light'
@@ -39,9 +35,11 @@ export default class Liquid extends Component {
         this.sphere = new LiquidSphere
         this.group = new AnimationGroup
 
-        // RenderPass
-        this.renderPass = new RenderPass( this.scene, this.camera )
-        this.renderPass.renderToScreen = true
+        this.renderer = new WebGLRenderer( {
+            antialias: true,
+            logarithmicDepthBuffer: true,
+            alpha: true
+        })
 
         this.force = new Force2
     }
@@ -65,32 +63,15 @@ export default class Liquid extends Component {
 
         Light( this.scene )
 
-        const renderer = new WebGLRenderer( {
-            antialias: true,
-            logarithmicDepthBuffer: true,
-            alpha: true
-        })
-        renderer.setSize( width, height )
-        renderer.gammaInput = true
-        renderer.gammaOutput = true
-        renderer.shadowMap.enabled = true
-
-        this.composer = new EffectComposer( renderer, {
-            stencilBuffer: true,
-            depthTexture: true
-        } )
-        this.composer.setSize( width, height )
-        this.composer.addPass( this.renderPass )
-        this.renderer = this.composer.renderer
-
-        this.canvas.appendChild( this.renderer.domElement )
-        this.clock = new Clock()
+        this.renderer.setSize( width, height )
 
         // console.log(this.sphere.material.uniforms)
         this.sphere.changeColor([1.0, 0.2, 0.2])
 
         this.initForce()
         this.renderCanvas()
+
+        this.canvas.appendChild( this.renderer.domElement )
     }
 
     // Initializing
@@ -107,7 +88,7 @@ export default class Liquid extends Component {
     renderCanvas = () => {
         // Frames
         requestAnimationFrame( this.renderCanvas )
-        this.composer.render( this.clock.getDelta() )
+        this.renderer.render( this.scene, this.camera )
 
         this.updateForce()
         this.updateUniforms()

@@ -24,7 +24,7 @@ class AppInfoLine extends Component {
         return (
             <AppInfoLineWrapper>
                 <Typography type='caption' size='tiny' color='disabled' tt='uppercase'> { label } </Typography>
-                <Typography type='caption' size='tiny' color='disabled' weight='medium'> { description } </Typography>
+                <Typography type='caption' size='tiny' color='secondary' weight='bold'> { description } </Typography>
             </AppInfoLineWrapper>
         )
     }

@@ -23,7 +23,7 @@ const SketchBackground = styled('div')`
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  background: linear-gradient(347deg, #2f42e6, #f4cc80);
+  background: linear-gradient(347deg, #aea5b7, #3100eb);
   background-size: 400% 400%;
   animation: ${ BackgroundShift } 30s ease infinite;
 `

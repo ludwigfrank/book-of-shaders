@@ -2,7 +2,7 @@ export const light = {
     type: {
         primary: '#1F1F21',
         regular: '#4b4f56',
-        secondary: '#90949C',
+        secondary: '#84878f',
         disabled: 'rgba(0, 0, 0, 0.38)',
         hint: 'rgba(0, 0, 0, 0.38)',
         icon: 'rgba(0, 0, 0, 0.38)',

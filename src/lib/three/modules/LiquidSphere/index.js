@@ -1,4 +1,4 @@
-import { BufferGeometry, Mesh, OctahedronGeometry, ShaderMaterial, UniformsLib, UniformsUtils, Vector3 } from 'three'
+import { BufferGeometry, Mesh, OctahedronGeometry, ShaderMaterial, UniformsLib, UniformsUtils } from 'three'
 /* eslint import/no-webpack-loader-syntax: off */
 import vert from "./object_vert.js"
 import frag from "./object_frag.js"
