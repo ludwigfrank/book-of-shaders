@@ -7,7 +7,7 @@ import {
     Clock, Color,
     ShadowMaterial, Group, OctahedronBufferGeometry, FogExp2
 } from 'three'
-import { EffectComposer, RenderPass, FilmPass, GlitchPass } from 'postprocessing'
+import { EffectComposer, RenderPass, FilmPass, GlitchPass } from '../../lib/vendor/postprocessing'
 import { extend } from 'underscore'
 
 
@@ -128,6 +128,9 @@ export default class ScreenEffect extends Component {
 
     }
 
+    /*
+    *                 <Scrim activeChallengeResolved={ this.props.activeChallengeResolved }/>
+    */
 
     render () {
         return (

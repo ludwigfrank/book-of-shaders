@@ -11,7 +11,6 @@
                     {
                         "object": "block",
                         "type": "code-line",
-                        "readOnly": "true",
                         "nodes": [
                             {
                                 "object": "text",
@@ -54,9 +53,6 @@
                     {
                         "object": "block",
                         "type": "code-line",
-                        "data": {
-                            "editable": "true"
-                        },
                         "nodes": [
                             {
                                 "object": "text",
@@ -93,7 +89,7 @@
                     },
                     {
                         "object": "block",
-                        "type": "code-line-editable",
+                        "type": "code-line",
                         "nodes": [
                             {
                                 "object": "text",
@@ -121,7 +117,7 @@
                     },
                     {
                         "object": "block",
-                        "type": "code-line-editable",
+                        "type": "code-line",
                         "nodes": [
                             {
                                 "object": "text",

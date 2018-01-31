@@ -9,7 +9,7 @@
     "glslify-loader": "^1.0.2",
     "immutable": "^3.8.2",
     "popmotion": "^8.1.9",
-    "postprocessing": "^4.1.0",
+    "popmotion-react": "^2.1.0",
     "prismjs": "^1.10.0",
     "raw-loader": "^0.5.1",
     "react": "^16.2.0",

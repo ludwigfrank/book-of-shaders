@@ -5099,7 +5099,13 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-popmotion@^8.1.9:
+popmotion-react@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/popmotion-react/-/popmotion-react-2.1.0.tgz#519e7004d9d5ab5c571c2bf03627daf4ebc18152"
+  dependencies:
+    popmotion "^8.1.0"
+
+popmotion@^8.1.0, popmotion@^8.1.9:
   version "8.1.9"
   resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-8.1.9.tgz#c4173bda07219ab07c81b6991b756b843bc11baf"
   dependencies:
@@ -5398,12 +5404,6 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.13:
     chalk "^2.3.0"
     source-map "^0.6.1"
     supports-color "^5.1.0"
-
-postprocessing@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-4.1.0.tgz#67d5bd004fde4a7921cf82c72c873ca89633d957"
-  dependencies:
-    three "0.89.x"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -6765,7 +6765,7 @@ text-table@0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
-three@0.89.x, three@^0.89.0:
+three@^0.89.0:
   version "0.89.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.89.0.tgz#4442d819a6168871b8d2cb37ad12a24310c170f5"
 

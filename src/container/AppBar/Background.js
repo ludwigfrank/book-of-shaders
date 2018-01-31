@@ -14,6 +14,7 @@ const Background = styled('div')`
   display: flex;
   align-content: center;
   ${props => props.theme.styles.divider};
+  z-index: 1;
 `
 
 export default Background

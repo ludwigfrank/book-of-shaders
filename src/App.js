@@ -3,12 +3,12 @@ import { ThemeProvider } from 'emotion-theming'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // Pages
-import HomePage from './pages/Home'
 import Interface from './pages/Interface'
 
 // Others
 import { THEME } from './theme'
 import globalStyle from './theme/global'
+import fonts from './theme/global/fonts.css'
 
 
 class App extends Component {

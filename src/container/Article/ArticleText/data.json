@@ -624,7 +624,7 @@
                         "leaves":[
                             {
                                 "object":"leaf",
-                                "text":"vec3 yellow, magenta, green;\n\n// Making Yellow\nyellow.rg = vec2(1.0);  // Assigning 1. to red and green channels\nyellow[2] = 0.0;        // Assigning 0. to blue channel\n\n// Making Magenta\nmagenta = yellow.rbg;   // Assign the channels with green and blue swapped\n\n// Making Green\ngreen.rgb = yellow.bgb; // Assign the blue channel of Yellow (0) to red and blue channels",
+                                "text":"vec3 yellow, magenta, green;\n\n// Making Yellow\nyellow.rg = vec2(1.0);  // Assigning 1. to red and green channels\nyellow[2] = 0.0;        // Assigning 0. to blue channel\n\n// Making Magenta\nmagenta = yellow.rbg;   // Assign the channels with green and blue swapped\n\n// Making Green\ngreen.rgb = yellow.bgb; // Assign the blue channel of Yellow (0)",
                                 "marks":[
                                     {
                                         "object":"mark",

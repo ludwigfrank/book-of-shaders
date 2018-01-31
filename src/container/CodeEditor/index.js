@@ -1,5 +1,5 @@
 import { Editor } from 'slate-react'
-import { Value, Document } from 'slate'
+import { Value } from 'slate'
 import Prism  from 'prismjs'
 import 'prismjs/components/prism-glsl'
 import React, { Component } from 'react'
@@ -7,8 +7,14 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import { CodeWrapper, Code, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark, base } from '../../theme/styles/code'
 import styled from 'react-emotion'
 import CodeCanvas from './CodeCanvas'
+import Typography from '../../components/Typography'
 
-import initialValue from './data/noise.json'
+
+import codeChallengeNoise from '../Terminal/TerminalText/challenge-noise.json'
+import codeChallengeColor from '../Terminal/TerminalText/challenge-color.json'
+import codeChallengeResolved from '../Terminal/TerminalText/challenge-resolved.json'
+import { css } from 'emotion'
+
 
 /**
  * Define our code components.
@@ -24,7 +30,7 @@ const StyledEditor = styled('div')`
   overflow-y: scroll;
   overflow-x: hidden;
   left: 64px;
-  top: 64px;
+  top: 63px;
 `
 
 const CodeLine = styled('div')`
@@ -56,7 +62,7 @@ function CodeBlockLine(props) {
 
 const CodeLineWrapper = styled('div')`
   position:absolute;
-  top: 32px;
+  top: 56px;
   left: 32px;
   opacity: 0.4;
 `
@@ -85,6 +91,57 @@ const LineNumbers = ( { size } ) => {
     )
 }
 
+const TabsWrapper = styled('div')`
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  border-bottom: 1px solid rgba(99,114,130,0.16);
+  & :not(:last-child) { 
+    border-right: 1px solid rgba(99,114,130,0.16);
+  }
+`
+
+const Tab = styled('div')`
+  flex: 1;
+  justify-content: center;
+  align-content: center;
+  box-sizing: border-box;
+  margin: 1px;
+  cursor:crosshair;
+  background-color: ${ props => props.activeFile === props.index ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)' };
+  & > span {
+    line-height: 23px;
+    ${ props => props.activeFile === props.index && css`color: #1F1F21` };
+  }
+`
+
+const Tabs = ({ files, activeFile, onClick }) => {
+
+    const tabs = files.map((file, index) => {
+        return (
+            <Tab activeFile={ activeFile } index={ index } key={file.name} onClick={ () => onClick( index )}>
+                <Typography
+                            type='caption'
+                            size='tiny'
+                            align='center'
+                            tt='lowercase'
+                            color='secondary'
+                            weight='medium'>
+                    { file.name }
+                </Typography>
+            </Tab>
+        )
+    })
+
+    return (
+        <TabsWrapper>
+            { tabs }
+        </TabsWrapper>
+    )
+}
+
 class CodeEditor extends Component {
 
     /**
@@ -94,7 +151,12 @@ class CodeEditor extends Component {
      */
 
     state = {
-        value: Value.fromJSON(initialValue),
+        value: Value.fromJSON(codeChallengeNoise),
+        files: [
+            { name: 'sketch.frag', value: codeChallengeNoise },
+            { name: 'color-basics.frag', value: codeChallengeColor },
+        ],
+        activeFile: 0
     }
 
 
@@ -108,6 +170,14 @@ class CodeEditor extends Component {
         this.setState({ value })
     }
 
+    handleTabClick = ( index ) => {
+
+        this.setState({
+            activeFile: index,
+            value: Value.fromJSON( this.state.files[index].value )
+        })
+    }
+
     /**
      * Render.
      *
@@ -115,10 +185,14 @@ class CodeEditor extends Component {
      */
 
     render() {
+        const { files, activeFile } = this.state
         const size = this.state.value.document.getBlocks().size
+
+
         return (
             <div>
                 <StyledEditor>
+                    <Tabs files={ files } activeFile={ activeFile } onClick={ this.handleTabClick }/>
                     <LineNumbers size={size}/>
                     <Editor
                         placeholder="Paste in some HTML..."

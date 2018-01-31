@@ -84,7 +84,7 @@
                     },
                     {
                         "object": "block",
-                        "type": "code-line-editable",
+                        "type": "code-line",
                         "nodes": [
                             {
                                 "object": "text",
@@ -121,7 +121,7 @@
                     },
                     {
                         "object": "block",
-                        "type": "code-line-editable",
+                        "type": "code-line",
                         "nodes": [
                             {
                                 "object": "text",

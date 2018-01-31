@@ -9,7 +9,7 @@ const base = props => css`
 `
 
 export const CodeWrapper = styled('div')`
-   background-color: #ecedee;
+   background-color: #e9eaeb;
    padding: 16px 24px;
    margin: 16px -24px;
    border-radius: 4px;

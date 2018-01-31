@@ -11,7 +11,7 @@ import LiquidSphere from '../container/CanvasLiquidSphere'
 import Terminal from '../container/Terminal'
 import Article from '../container/Article'
 import CodeEditor from '../container/CodeEditor'
-
+import CodeCanvas from '../container/CodeEditor/CodeCanvas'
 
 const GridGuides = styled('div')`
   position: fixed;
@@ -93,6 +93,12 @@ export default class Interface extends Component {
         })
     }
 
+    /*
+    *
+    *      <LiquidSphere activeChallenge={ activeChallenge } activeChallengeResolved={ activeChallengeResolved }/>
+           <ScreenEffect activeChallengeResolved={ activeChallengeResolved }/>
+    * */
+
 
     render () {
         const { showTerminal, activeChallenge, activeChallengeResolved } = this.state
@@ -103,8 +109,9 @@ export default class Interface extends Component {
                 <AppInfo />
                 <Article />
                 <CodeEditor />
-                <ScreenEffect activeChallengeResolved={ activeChallengeResolved }/>
+                <CodeCanvas />
                 <LiquidSphere activeChallenge={ activeChallenge } activeChallengeResolved={ activeChallengeResolved }/>
+                <ScreenEffect activeChallengeResolved={ activeChallengeResolved }/>
                 <Terminal showTerminal={ showTerminal } activeChallenge={ activeChallenge } activeChallengeResolved={ activeChallengeResolved }/>
             </div>
         )
