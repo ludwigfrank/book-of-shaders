@@ -7,6 +7,8 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import initialValue from './data.json'
 import challengeNoise from './challenge-noise.json'
 import challengeColor from './challenge-color.json'
+import challengeResolved from './challenge-resolved.json'
+
 import styled from 'react-emotion'
 import { CodeWrapper, Code, CodeMark, CodeCommentMark, CodeKeywordMark, CodeNumberMark, CodePunctuationMark, GlitchCss } from './styles/code/index'
 
@@ -68,12 +70,13 @@ class TerminalText extends Component {
      */
 
     state = {
-        value: Value.fromJSON(challengeNoise),
+        value: Value.fromJSON(challengeResolved),
         codeNode: null
     }
 
     static defaultProps = {
-        activeChallenge: null
+        activeChallenge: null,
+        activeChallengeResolved: true
     }
 
     /**
@@ -86,9 +89,11 @@ class TerminalText extends Component {
         this.setState({ value })
     }
 
-    componentWillReceiveProps ({ isShown, activeChallenge }, nextContext) {
+    componentWillReceiveProps ({ isShown, activeChallenge, activeChallengeResolved }, nextContext) {
+        console.log('hello' + activeChallenge, activeChallengeResolved)
         if ( isShown ) this.toggleFocus()
-        if (activeChallenge !== this.props.activeChallenge) this.changeValue( activeChallenge )
+        if ( activeChallengeResolved ) this.changeValue()
+        else if (activeChallenge !== this.props.activeChallenge) this.changeValue( activeChallenge )
     }
 
     changeValue = ( challenge ) => {
@@ -97,7 +102,9 @@ class TerminalText extends Component {
                 break;
             case 'challenge-noise': this.setState({ value: Value.fromJSON(challengeNoise) })
                 break;
-            default: this.setState({ value: Value.fromJSON(challengeColor) })
+            case 'challenge-resolved': this.setState({ value: Value.fromJSON(challengeResolved) })
+                break;
+            default: this.setState({ value: Value.fromJSON(challengeResolved) })
         }
     }
 

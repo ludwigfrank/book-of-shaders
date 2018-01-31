@@ -7,7 +7,7 @@ import {
     Clock, Color,
     ShadowMaterial, Group, OctahedronBufferGeometry, FogExp2
 } from 'three'
-import { EffectComposer, RenderPass, FilmPass } from 'postprocessing'
+import { EffectComposer, RenderPass, FilmPass, GlitchPass } from 'postprocessing'
 import { extend } from 'underscore'
 
 
@@ -53,14 +53,26 @@ export default class ScreenEffect extends Component {
         })
         this.filmPass.renderToScreen = true
 
+        // GlitchPass
+        this.glitchPass = new GlitchPass({
+            mode: 1
+        })
+        this.glitchPass.renderToScreen = false
+        this.glitchPass.enabled = false
+
         // RenderPass
         this.renderPass = new RenderPass( this.scene, this.camera )
         this.renderPass.renderToScreen = false
 
     }
 
+
     componentDidMount () {
         this.init()
+    }
+
+    componentWillReceiveProps ({ activeChallengeResolved }, nextContext) {
+        this.glitchPass.enabled = !activeChallengeResolved
     }
 
     init = () => {
@@ -89,8 +101,8 @@ export default class ScreenEffect extends Component {
         this.composer.setSize( WIDTH, HEIGHT )
 
         this.composer.addPass( this.renderPass )
+        this.composer.addPass( this.glitchPass )
         this.composer.addPass( this.filmPass )
-
 
         this.renderer = this.composer.renderer
         this.renderer.setSize( WIDTH, HEIGHT )
@@ -106,7 +118,6 @@ export default class ScreenEffect extends Component {
         // Frames
         requestAnimationFrame( this.renderCanvas )
         this.composer.render( this.clock.getDelta() )
-
     }
 
     handleMouseEnter = () => {

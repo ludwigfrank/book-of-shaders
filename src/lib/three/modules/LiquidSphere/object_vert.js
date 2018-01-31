@@ -4,6 +4,7 @@ export default glslify`
     uniform float time;
     uniform float radius;
     uniform float distort;
+    uniform float noiseIntensity;
     
     varying vec3 vColor;
     varying vec3 vNormal;
@@ -108,7 +109,7 @@ export default glslify`
     
     void main() {
       float updateTime = time / 1000.0;
-      float noise = snoise3(vec3(position / 8.0 + updateTime * 5.0));
+      float noise = snoise3(vec3(position / noiseIntensity + updateTime * 5.0));
       vec4 mvPosition = modelViewMatrix * vec4(position * (noise * pow(distort, 2.0) + radius), 1.0);
     
       vColor = hsv2rgb(vec3(noise * distort * 0.3 + updateTime, 0.2, 1.0));

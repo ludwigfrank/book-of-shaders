@@ -64,11 +64,12 @@ const RedLed = styled('div')`
   animation: ${ BlinkAnimation } 1s infinite;
 `
 
-const TerminalFile = ({ showTerminal, activeChallenge }) => {
-
-    return <TerminalText isShown={ showTerminal } activeChallenge={ activeChallenge }/>
-
-
+const TerminalFile = ({ showTerminal, activeChallenge, activeChallengeResolved }) => {
+    return <TerminalText
+        isShown={ showTerminal }
+        activeChallenge={ activeChallenge }
+        activeChallengeResolved={ activeChallengeResolved }
+    />
 }
 
 export default class Terminal extends Component {
@@ -84,14 +85,18 @@ export default class Terminal extends Component {
 
     render () {
         const { fileName } = this.state
-        const { showTerminal, activeChallenge } = this.props
+        const { showTerminal, activeChallenge, activeChallengeResolved } = this.props
 
         return (
             <Wrapper isShown={ showTerminal }>
                 <Header>
                     <RedLed />
                     <HeaderText> { fileName } </HeaderText>
-                    <TerminalFile showTerminal={ showTerminal } activeChallenge={ activeChallenge }/>
+                    <TerminalFile
+                        showTerminal={ showTerminal }
+                        activeChallenge={ activeChallenge }
+                        activeChallengeResolved={ activeChallengeResolved }
+                    />
                 </Header>
             </Wrapper>
         )

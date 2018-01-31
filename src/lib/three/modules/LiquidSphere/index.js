@@ -8,7 +8,7 @@ class LiquidSphere extends Mesh {
     constructor () {
         super()
         this.geometry = new BufferGeometry()
-        this.geometry.fromGeometry( new OctahedronGeometry( 5, 5 ) )
+        this.geometry.fromGeometry( new OctahedronGeometry( 5, 6 ) )
         this.material = new ShaderMaterial({
             uniforms: UniformsUtils.merge([
                 UniformsLib['lights'],
@@ -19,7 +19,7 @@ class LiquidSphere extends Mesh {
                     },
                     radius: {
                         type: 'f',
-                        value: 5
+                        value: 1.0
                     },
                     distort: {
                         type: 'f',
@@ -31,7 +31,11 @@ class LiquidSphere extends Mesh {
                     },
                     mixIntensity: {
                         type: 'f',
-                        value: 1
+                        value: 0
+                    },
+                    noiseIntensity: {
+                        type: 'f',
+                        value: 8.0
                     }
                 }
             ]),
@@ -41,22 +45,55 @@ class LiquidSphere extends Mesh {
         })
     }
 
+
+    changeRadius = ( newRadius ) => {
+        const oldRadius = this.material.uniforms.radius.value
+
+        tween({
+            from: oldRadius,
+            to: newRadius,
+            ease: easing.easeInOut,
+            duration: 6000
+        }).start( v => this.material.uniforms.radius.value = v)
+    }
+
+    changeNoise = ( newIntensity ) => {
+        const oldIntensity = this.material.uniforms.noiseIntensity.value
+
+        tween({
+            from: oldIntensity,
+            to: newIntensity,
+            ease: easing.linear,
+            duration: 4000,
+        }).start( v =>
+            this.material.uniforms.noiseIntensity.value = v
+        )
+    }
+
     changeColor = ( newColor ) => {
         const oldColor = this.material.uniforms.mixColor.value
+        const oldIntensity = this.material.uniforms.mixIntensity.value
+
+        const colorIntensity = newColor[3]
+        const colorRGB = newColor.splice(0,3)
 
         tween({
             from: oldColor,
-            to: newColor,
+            to: colorRGB,
             ease: easing.linear,
             duration: 4000,
         }).start( v =>
             this.material.uniforms.mixColor.value = v
         )
 
-
-        console.log( oldColor )
+        tween({
+            from: oldIntensity,
+            to: colorIntensity,
+            ease: easing.linear,
+            duration: 4000,
+        }).start( v => this.material.uniforms.mixIntensity.value = v
+        )
     }
-
 }
 // sohere wegcoden
 

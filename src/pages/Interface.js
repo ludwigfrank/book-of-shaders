@@ -30,7 +30,8 @@ export default class Interface extends Component {
             'challenge-color',
             'challenge-noise'
         ],
-        activeChallenge: null
+        activeChallenge: null,
+        activeChallengeResolved: true
     }
 
     componentDidMount () {
@@ -60,7 +61,15 @@ export default class Interface extends Component {
     }
 
     startNewChallenge = () => {
-        const { challenges, activeChallenge } = this.state
+        const { challenges, activeChallenge, activeChallengeResolved } = this.state
+
+        // If the current challenge is not resolved, return
+        if ( activeChallengeResolved === false ) return
+
+        // Set the resolved to false
+        this.setState({ activeChallengeResolved: false })
+
+        // Initialize challenge variable
         let challenge
 
         // Init first Challenge
@@ -73,20 +82,20 @@ export default class Interface extends Component {
             else challenge = challenges[index + 1]
         }
 
-        this.setState({
-            activeChallenge: challenge
-        })
+        this.setState({ activeChallenge: challenge })
 
         console.log('NEW CHALLENGE: ' + challenge)
     }
 
     terminalConfirmInput = () => {
-
+        this.setState({
+            activeChallengeResolved: true,
+        })
     }
 
 
     render () {
-        const { showTerminal, activeChallenge } = this.state
+        const { showTerminal, activeChallenge, activeChallengeResolved } = this.state
         return (
             <div>
                 <NavigationBar />
@@ -94,8 +103,9 @@ export default class Interface extends Component {
                 <AppInfo />
                 <Article />
                 <CodeEditor />
-                <LiquidSphere/>
-                <Terminal showTerminal={ showTerminal } activeChallenge={ activeChallenge }/>
+                <ScreenEffect activeChallengeResolved={ activeChallengeResolved }/>
+                <LiquidSphere activeChallenge={ activeChallenge } activeChallengeResolved={ activeChallengeResolved }/>
+                <Terminal showTerminal={ showTerminal } activeChallenge={ activeChallenge } activeChallengeResolved={ activeChallengeResolved }/>
             </div>
         )
     }
