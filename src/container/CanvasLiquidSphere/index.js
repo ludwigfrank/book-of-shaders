@@ -11,6 +11,8 @@ import Light from './Light'
 import LiquidSphere from '../../lib/three/modules/LiquidSphere/index'
 import AnimationGroup from '../../lib/three/modules/AnimationGroup/index'
 
+import Typography from '../../components/Typography'
+
 const CenterContent = styled('div')`
   left: 0;
   position: absolute;
@@ -20,11 +22,47 @@ const CenterContent = styled('div')`
   z-index: ${props => props.theme.elevation.xl};
 `
 
+const IntroWrapper = styled('div')`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: ${props => props.visible ? 1 : 0 };
+  transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10000;
+`
+
+const IntroWrapperText = styled('div')`
+  width: 450px
+`
+
+
+const Intro = ({ visible }) => {
+
+    return (
+        <IntroWrapper visible={ visible }>
+            <IntroWrapperText>
+                <Typography>
+                    <span style={{color: '#fff', opacity: 0.8, lineHeight: 1.8, letterSpacing: '0.5px'}}>
+                        Set against the backdrop of China's Cultural Revolution, a secret military project sends signals into space to establish contact with aliens. An alien civilization on the brink of destruction captures the signal and plans to invade Earth. Meanwhile, on Earth, different camps start forming, planning to either welcome the superior beings and help them take over a world seen as corrupt, or to fight against the invasion. The result is a science fiction masterpiece of enormous scope and vision.
+                    </span>
+                </Typography>
+            </IntroWrapperText>
+        </IntroWrapper>
+    )
+}
+
 
 export default class CanvasLiquidSphere extends Component {
     constructor ( props ) {
         super( props )
 
+        this.state = {
+            intro: true
+        }
         // Scene
         this.scene = new Scene()
 
@@ -53,6 +91,27 @@ export default class CanvasLiquidSphere extends Component {
 
     componentDidMount () {
         this.init()
+        this.startIntro()
+        window.addEventListener('keydown', (value) => {
+            const { key, ctrlKey } = value
+
+            // Toggle Terminal
+            if (key === 'i' && ctrlKey) {
+                this.endIntro()
+                this.setState({
+                    intro: false,
+                })
+
+            }
+        })
+    }
+
+    startIntro = () => {
+        this.sphere.changeRadius(6)
+    }
+
+    endIntro = () => {
+        this.sphere.changeRadius(1)
     }
 
     componentWillReceiveProps ({ activeChallenge, activeChallengeResolved }, nextContext) {
@@ -137,6 +196,7 @@ export default class CanvasLiquidSphere extends Component {
     render () {
         return (
             <div>
+                <Intro visible={ this.state.intro }/>
                 <CenterContent
                     innerRef={ e => this.canvas = e }
                 />

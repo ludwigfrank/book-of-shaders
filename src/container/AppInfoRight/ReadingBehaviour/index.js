@@ -15,17 +15,14 @@ const Wrapper = styled('div')`
 
 const CanvasWrapper = styled('div')`
   top: 0;
-  width: 1900px;
-  height: 1900px;
-  z-index: 10000;
   margin-top: 4px;
 `
 
 const WrapperBackground = styled('div')`
   background: url(${ GridGuidesPng }) repeat;
   opacity: 0.2;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   position: absolute;
 `
 

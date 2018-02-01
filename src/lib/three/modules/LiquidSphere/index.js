@@ -19,7 +19,7 @@ class LiquidSphere extends Mesh {
                     },
                     radius: {
                         type: 'f',
-                        value: 1.0
+                        value: 8.0
                     },
                     distort: {
                         type: 'f',
