@@ -44,16 +44,6 @@ export default class AppInfo extends Component {
                 description: '00:00:00:00'
             }],
             [{
-                label: 'Location',
-                description: 'Germany'
-            }, {
-                label: 'Longitude',
-                description: '52.39886'
-            }, {
-                label: 'Latitude',
-                description: '13.06566'
-            }],
-            [{
                 label: 'Processor',
                 description: 'Intel'
             },{
@@ -62,6 +52,16 @@ export default class AppInfo extends Component {
             }, {
                 label: '64-BIT MODE',
                 description: 'enabled'
+            }],
+            [{
+                label: 'Challenge',
+                description: 'ctrl + m'
+            }, {
+                label: 'Terminal',
+                description: 'ctrl + j'
+            }, {
+                label: 'Enter T.',
+                description: 'ctrl + enter'
             }]
         ]
     }

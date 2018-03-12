@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>sizeEnlarge</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.25" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.25" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Home-Copy-9" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-955.000000, -133.000000)">
+        <g id="Group-13" transform="translate(273.000000, 59.000000)">
+            <g id="sizeEnlarge" transform="translate(682.000000, 74.000000)">
+                <path d="M8,1 C7.76988135,1 8,1.18654802 8,1.41666667 L8,6 C8,6.23011865 8.18654802,6 8.41666667,6 L12.5833333,6 C12.813452,6 13,6.23011865 13,6 L13,1.41666667 C13,1.18654802 13.2301186,1 13,1 L8,1 Z" id="Combined-Shape" fill="url(#linearGradient-1)"></path>
+                <path d="M8,14 L8,8 C8,6.8954305 7.1045695,6 6,6 L0,6 L0,2 C-4.4408921e-16,0.8954305 0.8954305,0 2,0 L12,0 C13.1045695,4.4408921e-16 14,0.8954305 14,2 L14,12 C14,13.1045695 13.1045695,14 12,14 L8,14 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" transform="translate(7.000000, 7.000000) rotate(-180.000000) translate(-7.000000, -7.000000) "></path>
+                <rect id="Path" stroke="#FFFFFF" transform="translate(10.500000, 3.500000) rotate(-180.000000) translate(-10.500000, -3.500000) " x="7.5" y="0.5" width="6" height="6" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-core": "^6.26.0",
     "emotion": "^8.0.12",
     "emotion-theming": "^8.0.12",
     "glslify": "^6.1.0",

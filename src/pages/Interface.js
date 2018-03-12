@@ -39,7 +39,7 @@ export default class Interface extends Component {
             const { key, ctrlKey } = value
 
             // Toggle Terminal
-            if (key === 'j' && ctrlKey) {
+            if (key === 't' && ctrlKey) {
                 this.setState({
                     showTerminal: !this.state.showTerminal,
                 })

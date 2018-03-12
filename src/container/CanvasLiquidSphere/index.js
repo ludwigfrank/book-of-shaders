@@ -29,8 +29,9 @@ const IntroWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none;
+  flex-direction: column;
   opacity: ${props => props.visible ? 1 : 0 };
+  pointer-events: ${props => props.visible ? 'auto' : 'none' };
   transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10000;
 `
@@ -39,18 +40,36 @@ const IntroWrapperText = styled('div')`
   width: 450px
 `
 
+const Button = styled('div')`
+  padding: 6px 16px 8px 16px;
+  margin-top: 32px;
+  border-radius: 4px;
+  color: ${props => props.theme.color.dark.type.primary};
+  border: 1px solid ${props => props.theme.color.dark.type.secondary};
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  line-height: 24px;
+`
 
-const Intro = ({ visible }) => {
+
+const Intro = ({ visible, handleClick }) => {
 
     return (
         <IntroWrapper visible={ visible }>
             <IntroWrapperText>
                 <Typography>
-                    <span style={{color: '#fff', opacity: 0.8, lineHeight: 1.8, letterSpacing: '0.5px'}}>
-                        Set against the backdrop of China's Cultural Revolution, a secret military project sends signals into space to establish contact with aliens. An alien civilization on the brink of destruction captures the signal and plans to invade Earth. Meanwhile, on Earth, different camps start forming, planning to either welcome the superior beings and help them take over a world seen as corrupt, or to fight against the invasion. The result is a science fiction masterpiece of enormous scope and vision.
+                    <span style={{color: '#fff', opacity: 0.8, lineHeight: 1.8, letterSpacing: '0.5px', textTransform: 'none'}}>
+                        The youngest kids tried to squeeze themselves through the legs of the crowd of adults, trying to get a seat where they could see her. Wrangling for the front most place on the floor, looking up from time to time, to the woman sitting on a fur against the wall of the bunker. Everyone wanted to make sure they still preserved a decent distance between them and her.
+A few weeks ago a group of colony hunters found her outside. No one knew how she could have survived the radiation, but the lumps covering her body made clear her story must be truthful: She lived before the apocalypse. When the strange spheres she described as Motus could be controlled and represented the recourse of energy for all of us…
                     </span>
                 </Typography>
             </IntroWrapperText>
+            <Button onClick={() => handleClick()}>
+                <Typography color={'primary'} theme={'dark'} tt={'uppercase'} spacing={2}>
+                    Enter First Chapter
+                </Typography>
+            </Button>
         </IntroWrapper>
     )
 }
@@ -92,18 +111,6 @@ export default class CanvasLiquidSphere extends Component {
     componentDidMount () {
         this.init()
         this.startIntro()
-        window.addEventListener('keydown', (value) => {
-            const { key, ctrlKey } = value
-
-            // Toggle Terminal
-            if (key === 'i' && ctrlKey) {
-                this.endIntro()
-                this.setState({
-                    intro: false,
-                })
-
-            }
-        })
     }
 
     startIntro = () => {
@@ -111,6 +118,7 @@ export default class CanvasLiquidSphere extends Component {
     }
 
     endIntro = () => {
+        this.setState({ intro: false })
         this.sphere.changeRadius(1)
     }
 
@@ -196,7 +204,7 @@ export default class CanvasLiquidSphere extends Component {
     render () {
         return (
             <div>
-                <Intro visible={ this.state.intro }/>
+                <Intro visible={ this.state.intro } handleClick={ this.endIntro }/>
                 <CenterContent
                     innerRef={ e => this.canvas = e }
                 />

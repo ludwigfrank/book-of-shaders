@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>sizeShrink</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home-Copy-9" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-954.000000, -116.000000)">
+        <g id="Group-13" transform="translate(273.000000, 59.000000)" fill="#FFFFFF">
+            <g id="sizeShrink" transform="translate(681.000000, 57.000000)">
+                <path d="M6,1 L6,6 C6,7.1045695 6.8954305,8 8,8 L13,8 L13,12 C13,12.5522847 12.5522847,13 12,13 L2,13 C1.44771525,13 1,12.5522847 1,12 L1,2 C1,1.44771525 1.44771525,1 2,1 L6,1 Z" id="Combined-Shape" fill-opacity="0.25"></path>
+                <path d="M8,14 L8,13 L12,13 C12.5522847,13 13,12.5522847 13,12 L13,2 C13,1.44771525 12.5522847,1 12,1 L2,1 C1.44771525,1 1,1.44771525 1,2 L1,6 L0,6 L0,2 C-4.4408921e-16,0.8954305 0.8954305,0 2,0 L12,0 C13.1045695,4.4408921e-16 14,0.8954305 14,2 L14,12 C14,13.1045695 13.1045695,14 12,14 L8,14 Z M1,7 L6,7 C6.55228475,7 7,7.44771525 7,8 L7,13 C7,13.5522847 6.55228475,14 6,14 L1,14 C0.44771525,14 4.47140469e-16,13.5522847 -1.11022302e-16,13 L-1.11022302e-16,8 C-1.78657678e-16,7.44771525 0.44771525,7 1,7 Z" id="Combined-Shape" fill-rule="nonzero" transform="translate(7.000000, 7.000000) rotate(-180.000000) translate(-7.000000, -7.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

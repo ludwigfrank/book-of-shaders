@@ -15,7 +15,8 @@ const Text = ( props ) => {
         weight,
         spacing,
         size,
-        lineHeight
+        lineHeight,
+        theme = 'light'
     } = props
 
 
@@ -65,7 +66,7 @@ const Text = ( props ) => {
 
     const overrides = props => css`
       ${ size && 'font-size:' + props.theme.type.size[size] + unit};
-      ${ color && 'color:' + props.theme.color.light.type[color] };
+      ${ color && 'color:' + props.theme.color[theme].type[color] };
       line-height: ${  lineHeight ? lineHeight : '' };
     `
 
