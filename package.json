@@ -21,7 +21,7 @@
     "slate": "^0.32.2",
     "slate-html-serializer": "^0.5.2",
     "slate-react": "^0.11.2",
-    "three": "^0.89.0",
+    "three": "latest",
     "underscore": "^1.8.3",
     "warning": "^3.0.0"
   },
